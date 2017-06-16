@@ -24,19 +24,19 @@ public class RobotTest extends TestCase {
     }
 
     @Test
-    public void testConstructor() throws Exception {
+    public void test_robot_constructor() throws Exception {
         assertNotNull(robot);
     }
 
     @Test
-    public void testReport() throws Exception {
+    public void test_rebot_report() throws Exception {
         System.setOut(new PrintStream(outContent));
         robot.report();
         assertEquals("", outContent.toString());
     }
 
     @Test
-    public void testReceiveCommand() throws Exception {
+    public void test_rebot_ReceiveCommand() throws Exception {
 
     }
 
