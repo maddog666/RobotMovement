@@ -36,35 +36,57 @@ public class CommandFactoryTest extends TestCase {
     }
 
     @Test
-    public void test_matcher_place() throws Exception {
-        Matcher matcher = factory.matchPattern("PLACE 1,2,SOUTH");
-
-        while(matcher.find()) {
-            assertThat(matcher.group(1).toString(), is("PLACE"));
-            assertThat(matcher.group(2).toString(), is("1"));
-            assertThat(matcher.group(3).toString(), is("2"));
-            assertThat(matcher.group(4).toString(), is("SOUTH"));
-        }
-    }
-
-    @Test
-    public void test_matcher_report() throws Exception {
-        Matcher matcher = factory.matchPattern("REPORT");
-
-        while(matcher.find()) {
-            assertThat(matcher.group(1).toString(), is("REPORT"));
-        }
-    }
-
-    @Test
-    public void test_intepretCommand_place() throws Exception {
+    public void test_intepretCommand_place_x() throws Exception {
         Command command = factory.interpretCommand("PLACE 1,2,SOUTH");
         assertThat(command, instanceOf(PlaceCommand.class));
 
         PlaceCommand placeCommand = (PlaceCommand)command;
         assertEquals(placeCommand.getX(), Integer.valueOf(1));
-        assertEquals(placeCommand.getY(), Integer.valueOf(2));
+    }
+
+    @Test
+    public void test_intepretCommand_place_y() throws Exception {
+        Command command = factory.interpretCommand("PLACE 1,5,SOUTH");
+        assertThat(command, instanceOf(PlaceCommand.class));
+
+        PlaceCommand placeCommand = (PlaceCommand)command;
+        assertEquals(placeCommand.getY(), Integer.valueOf(5));
+    }
+
+    @Test
+    public void test_intepretCommand_place_south() throws Exception {
+        Command command = factory.interpretCommand("PLACE 1,2,SOUTH");
+        assertThat(command, instanceOf(PlaceCommand.class));
+
+        PlaceCommand placeCommand = (PlaceCommand)command;
         assertEquals(placeCommand.getFace(), Direction.SOUTH);
+    }
+
+    @Test
+    public void test_intepretCommand_place_east() throws Exception {
+        Command command = factory.interpretCommand("PLACE 1,2,EAST");
+        assertThat(command, instanceOf(PlaceCommand.class));
+
+        PlaceCommand placeCommand = (PlaceCommand)command;
+        assertEquals(placeCommand.getFace(), Direction.EAST);
+    }
+
+    @Test
+    public void test_intepretCommand_place_north() throws Exception {
+        Command command = factory.interpretCommand("PLACE 1,2,NORTH");
+        assertThat(command, instanceOf(PlaceCommand.class));
+
+        PlaceCommand placeCommand = (PlaceCommand)command;
+        assertEquals(placeCommand.getFace(), Direction.NORTH);
+    }
+
+    @Test
+    public void test_intepretCommand_place_west() throws Exception {
+        Command command = factory.interpretCommand("PLACE 1,2,WEST");
+        assertThat(command, instanceOf(PlaceCommand.class));
+
+        PlaceCommand placeCommand = (PlaceCommand)command;
+        assertEquals(placeCommand.getFace(), Direction.WEST);
     }
 
     @Test
@@ -98,4 +120,43 @@ public class CommandFactoryTest extends TestCase {
         assertThat(command, instanceOf(ReportCommand.class));
 
     }
+
+    @Test
+    public void test_intepretCommand_place_invalid_direction() throws Exception {
+        Command command = factory.interpretCommand("PLACE 1,2,SOMEWHERE");
+        assertNull(command);
+    }
+
+    @Test
+    public void test_intepretCommand_place_invalid_X() throws Exception {
+        Command command = factory.interpretCommand("PLACE a,2,SOMEWHERE");
+        assertNull(command);
+    }
+
+    @Test
+    public void test_intepretCommand_invalid_command() throws Exception {
+        Command command = factory.interpretCommand("SOMETHING RANDOM");
+        assertNull(command);
+    }
+
+
+    @Test
+    public void test_intepretCommand_place_invalid_Y() throws Exception {
+        Command command = factory.interpretCommand("PLACE 1,b,SOMEWHERE");
+        assertNull(command);
+    }
+
+    @Test
+    public void test_intepretCommand_invalid_command_2() throws Exception {
+        Command command = factory.interpretCommand("SOMETHING 1,2,SOMEWHERE");
+        assertNull(command);
+    }
+
+    @Test
+    public void test_intepretCommand_long_command() throws Exception {
+        Command command = factory.interpretCommand("SOMETHING RANDOM THAT MIGHT BE TOO LONG TO INTERPRET");
+        assertNull(command);
+    }
+
+
 }
