@@ -28,6 +28,14 @@ public class Location {
                 y <= MAX_Y;
     }
 
+    public static int getMaxWidth() {
+        return MAX_X - MIN_X + 1;
+    }
+
+    public static int getMaxHeight() {
+        return MAX_Y - MIN_Y + 1;
+    }
+
     public Integer getX() {
         return x;
     }
