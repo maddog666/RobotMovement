@@ -5,11 +5,10 @@ import com.robot.app.entities.Robot;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * Hello world!
+ * This is the main object for the Robot movement app.
  */
 public class App {
     public static void main(String[] args) throws IOException {

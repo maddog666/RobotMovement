@@ -57,28 +57,28 @@ public class RobotTest extends TestCase {
     public void test_rebot_ReceiveCommand_place_north() throws Exception {
         robot.receiveCommand("PLACE 0,0,NORTH");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 0,0,NORTH", outContent.toString());
+        assertEquals("\nOutput: 0,0,NORTH\n", outContent.toString());
     }
 
     @Test
     public void test_rebot_ReceiveCommand_place_south() throws Exception {
         robot.receiveCommand("PLACE 0,0,SOUTH");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 0,0,SOUTH", outContent.toString());
+        assertEquals("\nOutput: 0,0,SOUTH\n", outContent.toString());
     }
 
     @Test
     public void test_rebot_ReceiveCommand_place_east() throws Exception {
         robot.receiveCommand("PLACE 0,0,EAST");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 0,0,EAST", outContent.toString());
+        assertEquals("\nOutput: 0,0,EAST\n", outContent.toString());
     }
 
     @Test
     public void test_rebot_ReceiveCommand_place_west() throws Exception {
         robot.receiveCommand("PLACE 0,0,WEST");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 0,0,WEST", outContent.toString());
+        assertEquals("\nOutput: 0,0,WEST\n", outContent.toString());
     }
 
     @Test
@@ -114,7 +114,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 0,1,NORTH");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 0,2,NORTH", outContent.toString());
+        assertEquals("\nOutput: 0,2,NORTH\n", outContent.toString());
     }
 
     @Test
@@ -123,7 +123,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("MOVE");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 0,3,NORTH", outContent.toString());
+        assertEquals("\nOutput: 0,3,NORTH\n", outContent.toString());
     }
 
     @Test
@@ -132,7 +132,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("MOVE");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 0,4,NORTH", outContent.toString());
+        assertEquals("\nOutput: 0,4,NORTH\n", outContent.toString());
     }
 
     @Test
@@ -140,7 +140,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 0,1,EAST");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 1,1,EAST", outContent.toString());
+        assertEquals("\nOutput: 1,1,EAST\n", outContent.toString());
     }
 
     @Test
@@ -149,7 +149,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("MOVE");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 2,1,EAST", outContent.toString());
+        assertEquals("\nOutput: 2,1,EAST\n", outContent.toString());
     }
 
     @Test
@@ -158,7 +158,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("MOVE");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 4,1,EAST", outContent.toString());
+        assertEquals("\nOutput: 4,1,EAST\n", outContent.toString());
     }
 
     @Test
@@ -166,7 +166,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 3,1,WEST");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 2,1,WEST", outContent.toString());
+        assertEquals("\nOutput: 2,1,WEST\n", outContent.toString());
     }
 
     @Test
@@ -175,7 +175,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("MOVE");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 1,1,WEST", outContent.toString());
+        assertEquals("\nOutput: 1,1,WEST\n", outContent.toString());
     }
 
     @Test
@@ -184,7 +184,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("MOVE");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 0,1,WEST", outContent.toString());
+        assertEquals("\nOutput: 0,1,WEST\n", outContent.toString());
     }
 
     @Test
@@ -192,7 +192,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 3,3,SOUTH");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 3,2,SOUTH", outContent.toString());
+        assertEquals("\nOutput: 3,2,SOUTH\n", outContent.toString());
     }
 
     @Test
@@ -201,7 +201,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("MOVE");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 3,1,SOUTH", outContent.toString());
+        assertEquals("\nOutput: 3,1,SOUTH\n", outContent.toString());
     }
 
     @Test
@@ -210,7 +210,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("MOVE");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 1,0,SOUTH", outContent.toString());
+        assertEquals("\nOutput: 1,0,SOUTH\n", outContent.toString());
     }
 
     @Test
@@ -218,7 +218,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 1,1,SOUTH");
         robot.receiveCommand("LEFT");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 1,1,EAST", outContent.toString());
+        assertEquals("\nOutput: 1,1,EAST\n", outContent.toString());
     }
 
     @Test
@@ -226,7 +226,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 1,1,WEST");
         robot.receiveCommand("LEFT");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 1,1,SOUTH", outContent.toString());
+        assertEquals("\nOutput: 1,1,SOUTH\n", outContent.toString());
     }
 
     @Test
@@ -234,7 +234,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 1,1,NORTH");
         robot.receiveCommand("LEFT");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 1,1,WEST", outContent.toString());
+        assertEquals("\nOutput: 1,1,WEST\n", outContent.toString());
     }
 
     @Test
@@ -242,7 +242,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 1,1,EAST");
         robot.receiveCommand("LEFT");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 1,1,NORTH", outContent.toString());
+        assertEquals("\nOutput: 1,1,NORTH\n", outContent.toString());
     }
 
     @Test
@@ -250,7 +250,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 1,1,SOUTH");
         robot.receiveCommand("RIGHT");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 1,1,WEST", outContent.toString());
+        assertEquals("\nOutput: 1,1,WEST\n", outContent.toString());
     }
 
     @Test
@@ -258,7 +258,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 1,1,WEST");
         robot.receiveCommand("RIGHT");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 1,1,NORTH", outContent.toString());
+        assertEquals("\nOutput: 1,1,NORTH\n", outContent.toString());
     }
 
     @Test
@@ -266,7 +266,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 1,1,NORTH");
         robot.receiveCommand("RIGHT");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 1,1,EAST", outContent.toString());
+        assertEquals("\nOutput: 1,1,EAST\n", outContent.toString());
     }
 
     @Test
@@ -274,7 +274,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 1,1,EAST");
         robot.receiveCommand("RIGHT");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 1,1,SOUTH", outContent.toString());
+        assertEquals("\nOutput: 1,1,SOUTH\n", outContent.toString());
     }
 
     @Test
@@ -282,7 +282,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 0,0,NORTH");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 0,1,NORTH", outContent.toString());
+        assertEquals("\nOutput: 0,1,NORTH\n", outContent.toString());
     }
 
     @Test
@@ -290,7 +290,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("PLACE 0,0,NORTH");
         robot.receiveCommand("LEFT");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 0,0,WEST", outContent.toString());
+        assertEquals("\nOutput: 0,0,WEST\n", outContent.toString());
     }
 
     @Test
@@ -301,7 +301,7 @@ public class RobotTest extends TestCase {
         robot.receiveCommand("LEFT");
         robot.receiveCommand("MOVE");
         robot.receiveCommand("REPORT");
-        assertEquals("Output: 3,3,NORTH", outContent.toString());
+        assertEquals("\nOutput: 3,3,NORTH\n", outContent.toString());
     }
 
 

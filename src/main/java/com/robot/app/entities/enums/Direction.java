@@ -1,6 +1,8 @@
 package com.robot.app.entities.enums;
 
 /**
+ * This is an enum class which store all the possible directions.
+ * It containing the logic of turning left and right from a given direction.
  * Created by williamhu on 7/6/17.
  */
 public enum Direction {
@@ -20,6 +22,11 @@ public enum Direction {
         return "";
     }
 
+    /**
+     * Turn left from the current direction.
+     *
+     * @return The new direction after turning left.
+     */
     public Direction moveLeft() {
         switch(this){
             case EAST :
@@ -34,6 +41,11 @@ public enum Direction {
         return this;
     }
 
+    /**
+     * Turn right from the current direction.
+     *
+     * @return The new direction after turning right.
+     */
     public Direction moveRight() {
         switch(this){
             case EAST :

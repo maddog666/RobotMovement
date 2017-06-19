@@ -5,6 +5,7 @@ import com.robot.app.entities.enums.Direction;
 import com.robot.app.factories.CommandFactory;
 
 /**
+ * This class is the robot object, which stores all the attribute of a robot and its logic for handling commands.
  * Created by williamhu on 7/6/17.
  */
 public class Robot {
@@ -16,6 +17,11 @@ public class Robot {
         this.factory = new CommandFactory();
     }
 
+    /**
+     * Handling a string command accordingly.
+     * @param commandString A command in string.
+     * @return The current robot.
+     */
     public Robot receiveCommand(String commandString) {
         Command command = factory.interpretCommand(commandString);
 
@@ -28,13 +34,16 @@ public class Robot {
         } else if (command instanceof ReportCommand) {
             receivedReportCommand((ReportCommand) command);
         }
-
         return this;
     }
 
+    /**
+     * Print out the location and direction for report.
+     * @return The current robot.
+     */
     private Robot report() {
-        if (robotPlaced()) {
-            System.out.print("Output: " +
+        if (isRobotPlaced()) {
+            System.out.println("\nOutput: " +
                     location.getX().toString() + "," +
                     location.getY().toString() + "," +
                     face.name());
@@ -43,6 +52,11 @@ public class Robot {
         return this;
     }
 
+    /**
+     * Handles the logic when a PLACE command was received
+     * @param command A PLACE command.
+     * @return The current robot.
+     */
     private Robot receivedPlaceCommand(PlaceCommand command) {
         if (command != null && command.isValidLocation()) {
             this.location = command.getLocation();
@@ -51,9 +65,13 @@ public class Robot {
         return this;
     }
 
-
+    /**
+     * Handles the logic when a MOVE command was received
+     * @param command A MOVE command.
+     * @return The current robot.
+     */
     private Robot receivedMoveCommand(MoveCommand command) {
-        if (robotPlaced() && command != null) {
+        if (isRobotPlaced() && command != null) {
             switch (face) {
                 case SOUTH:
                     location.moveSouth();
@@ -72,8 +90,13 @@ public class Robot {
         return this;
     }
 
+    /**
+     * Handles the logic when a LEFT or RIGHT command was received.
+     * @param command A LEFT or RIGHT Direction command.
+     * @return The current robot.
+     */
     private Robot receivedDirectionCommand(DirectionCommand command) {
-        if (robotPlaced() && command != null) {
+        if (isRobotPlaced() && command != null) {
             switch (command.getDirection()) {
                 case LEFT:
                     this.face = this.face.moveLeft();
@@ -86,14 +109,23 @@ public class Robot {
         return this;
     }
 
+    /**
+     * Handles the logic when a REPORT command was received.
+     * @param command A REPORT command.
+     * @return The current robot.
+     */
     private Robot receivedReportCommand(ReportCommand command) {
-        if (robotPlaced() && command != null) {
+        if (isRobotPlaced() && command != null) {
             report();
         }
         return this;
     }
 
-    private boolean robotPlaced() {
+    /**
+     * Check whether the robot had been placed on the grid.
+     * @return If the robot was placed on the grid.
+     */
+    private boolean isRobotPlaced() {
         if (location != null) {
             return true;
         } else {

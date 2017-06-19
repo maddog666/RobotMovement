@@ -1,6 +1,7 @@
 package com.robot.app.entities;
 
 /**
+ * This object containing the x, y and logic of location on the grid.
  * Created by williamhu on 16/6/17.
  */
 public class Location {
@@ -21,6 +22,11 @@ public class Location {
         this.y = Integer.valueOf(y);
     }
 
+    /**
+     * Check whether the current location is a valid location.
+     *
+     * @return if the location is valid.
+     */
     public boolean isValidLocation() {
         return x >= MIN_X &&
                 x <= MAX_X &&
@@ -28,10 +34,20 @@ public class Location {
                 y <= MAX_Y;
     }
 
+    /**
+     * Get the maximum allowed width.
+     *
+     * @return maximum width.
+     */
     public static int getMaxWidth() {
         return MAX_X - MIN_X + 1;
     }
 
+    /**
+     * Get the maximum allowed height.
+     *
+     * @return maximum height.
+     */
     public static int getMaxHeight() {
         return MAX_Y - MIN_Y + 1;
     }
@@ -44,6 +60,11 @@ public class Location {
         return y;
     }
 
+    /**
+     * Move north from the current location.
+     *
+     * @return The new location after moving north.
+     */
     public Location moveNorth() {
         if (y < MAX_Y) {
             y++;
@@ -51,6 +72,11 @@ public class Location {
         return this;
     }
 
+    /**
+     * Move east from the current location.
+     *
+     * @return The new location after moving east.
+     */
     public Location moveEast() {
         if (x < MAX_X) {
             x++;
@@ -58,6 +84,11 @@ public class Location {
         return this;
     }
 
+    /**
+     * Move west from the current location.
+     *
+     * @return The new location after moving west.
+     */
     public Location moveWest() {
         if (x > MIN_X) {
             x--;
@@ -65,6 +96,11 @@ public class Location {
         return this;
     }
 
+    /**
+     * Move south from the current location.
+     *
+     * @return The new location after moving south.
+     */
     public Location moveSouth() {
         if (y > MIN_Y) {
             y--;

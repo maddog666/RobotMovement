@@ -4,6 +4,7 @@ import com.robot.app.entities.Location;
 import com.robot.app.entities.enums.Direction;
 
 /**
+ * This object is the PLACE command, containing the initial placing position and the direction it face.
  * Created by williamhu on 7/6/17.
  */
 public class PlaceCommand extends Command {
@@ -27,6 +28,10 @@ public class PlaceCommand extends Command {
         return face;
     }
 
+    /**
+     * This method determine whether the PLACE command containing a valid location.
+     * @return
+     */
     public boolean isValidLocation() {
         return location.isValidLocation();
     }
